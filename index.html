@@ -113,78 +113,12 @@ th.hl,td.hl{background:#ff79000f}tr.sel td{background:#ff790014}.gt2 td,.gt2 th{
 .gl2{cursor:pointer;color:#C4B5FD;border-bottom:1px dotted #C4B5FD66}.gl2:hover{color:var(--o);border-color:var(--o)}
 .dst .dbig small{white-space:normal}.hero h2{margin-bottom:6px}.tag{white-space:nowrap}td:last-child{white-space:nowrap}
 /* Migração entre bancos */
-.migration {display:grid;gap:16px;max-width:1540px;margin:0 auto}
-.migration .card {min-width:0}
-.migration .card:hover {transform:none}
-.migration .sm {line-height:1.5}
-.mg-heading {display:flex;justify-content:space-between;align-items:flex-start;gap:12px 20px;flex-wrap:wrap}
-.mg-heading h2,.mg-heading h3 {margin:0}
-.mg-heading h3 {font-size:16px}
-.mg-heading p {margin-top:5px}
-.mg-hero {padding:22px 24px;background:radial-gradient(ellipse at top right,#7c3aed38,transparent 60%),linear-gradient(125deg,#241447,#130c2c 62%,#311a20)}
-.mg-hero h2 {font-size:clamp(24px,3vw,36px);letter-spacing:-.035em}
-.mg-sources,.mg-filters,.mg-key {display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center}
-.mg-sources {margin-top:14px}
-.mg-source {color:#ddd6fe;border-color:#a78bfa65;white-space:normal}
-.mg-source.new {color:#a5f3fc;border-color:#67e8f966;background:#22d3ee12}
-.mg-filters {margin-top:15px;padding-top:14px;border-top:1px solid var(--b)}
-.mg-filters label {display:grid;gap:5px;min-width:0}
-.mg-filters label:last-child {flex:1;max-width:365px}
-.mg-filters select {width:100%;min-width:0;max-width:100%}
-.mg-kpis,.mg-split {display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
-.mg-kpis .card {padding:15px 17px}
-.mg-kpis .kv {font-size:clamp(24px,3vw,34px);font-variant-numeric:tabular-nums}
-.mg-kpis .mg-bmg .kv {color:#ffac60}
-.mg-kpis .mg-others .kv {color:#c4b5fd}
-.mg-split {grid-template-columns:minmax(0,1.75fr) minmax(0,1fr)}
-.mg-key {font-size:12px;color:var(--g);margin-top:12px}
-.mg-key span {display:inline-flex;align-items:center;gap:6px}
-.mg-key i {width:9px;height:9px;border-radius:3px;background:var(--series)}
-.mg-scroll {overflow:auto;margin-top:10px;scrollbar-width:thin;scrollbar-color:#7052a6 #ffffff0b}
-.mg-scroll:focus-visible,.migration button:focus-visible,.migration summary:focus-visible {outline:2px solid #ffab60;outline-offset:2px}
-.mg-chart {display:grid;grid-template-columns:44px minmax(0,1fr);min-width:var(--chart-width);margin:9px 0 0}
-.mg-axis {height:152px;display:flex;flex-direction:column;justify-content:space-between;padding-right:8px;text-align:right;color:var(--g);font:11px/1 system-ui;font-variant-numeric:tabular-nums}
-.mg-plot {display:grid;grid-template-columns:repeat(var(--months),minmax(0,1fr));min-width:0;text-align:center}
-.mg-columns {display:flex;align-items:flex-end;justify-content:center;gap:4px;height:152px;padding:0 3px;border-bottom:1px solid #ffffff36;background:linear-gradient(to bottom,#fff2 1px,transparent 1px) top / 100% 50%}
-.mg-columns.partial {background-color:#a78bfa14}
-.mg-columns.recent {background-color:#22d3ee10}
-.mg-month.new-start {border-left:1px dashed #67e8fc7a}
-.mg-columns b {width:clamp(6px,1.4vw,18px);height:var(--height);border-radius:4px 4px 0 0;background:var(--series);opacity:.94}
-.mg-columns b:hover {opacity:1;filter:brightness(1.25)}
-.mg-month-label {display:block;padding:7px 2px 3px;color:#d8def0;font-size:11px;white-space:nowrap}
-.mg-note {margin-top:9px}
-.mg-ranking {display:grid;gap:6px;margin-top:12px;padding:0;list-style:none}
-.mg-ranking li {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px 12px;padding:3px 0;font-size:12px}
-.mg-ranking li b {font-variant-numeric:tabular-nums}
-.mg-rank-track {grid-column:1/-1;height:4px;background:#ffffff13;border-radius:4px;overflow:hidden}
-.mg-rank-track i {display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#7046c8,#c4b5fd);width:var(--fill)}
-.mg-rank-track i.bmg {background:linear-gradient(90deg,#ea6400,#ffb570)}
-.mg-table {font-variant-numeric:tabular-nums}
-.mg-table th {cursor:default;letter-spacing:.045em;white-space:nowrap}
-.mg-table th:first-child {min-width:175px}
-.mg-table th:not(:first-child),.mg-table td:nth-child(n+2) {text-align:right}
-.mg-table td,.mg-table th {padding:7px 9px}
-.mg-table .mg-partial {background:#a78bfa0c}
-.mg-table .mg-recent {background:#22d3ee0a}
-.mg-table .mg-start {border-left:1px dashed #67e8fc62}
-.mg-table .mg-zero {color:#858fa9}
-.mg-table tfoot {font-weight:800;background:#ffffff08}
-.mg-table tbody tr:hover {background:#a78bfa0d}
-.mg-table button {background:none;border:0;color:#ddd6fe;font:inherit;font-weight:650;text-align:left;padding:2px 0;cursor:pointer}
-.mg-table button:hover {color:#ffb570}
-.mg-table tr.selected {background:#ff790012}
-.mg-alerts {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
-.mg-alerts .al {color:#fff;font:inherit;text-align:left;min-width:0}
-.mg-alerts .alh {flex-wrap:wrap}
-.mg-alerts .tag {white-space:normal}
-.mg-details summary {cursor:pointer;width:fit-content;color:#ddd6fe;font-weight:650}
-.mg-details summary:hover {color:#ffb570}
-.mg-details p,.mg-details ul {margin-top:10px}
-.mg-details ul {padding-left:20px;line-height:1.6}
-.mg-details li + li {margin-top:3px}
-.mg-method {padding-top:13px;padding-bottom:13px}
-@media(max-width:900px){.mg-split {grid-template-columns:minmax(0,1fr)}}
-@media(max-width:630px){.migration {gap:12px}.migration .card {padding:13px}.mg-kpis {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.mg-alerts {grid-template-columns:minmax(0,1fr)}.mg-filters label,.mg-filters label:last-child {flex:1 1 100%;max-width:none}}
+.tr u.bmg{background:linear-gradient(90deg,#ea6400,#FF7900,#FFB347)}
+.mg-partial{background:#a78bfa0c}
+.mg-recent{background:#22d3ee0a}
+.mg-start{border-left:1px dashed #67e8fc62}
+.mg-zero{color:#64748B}
+.al.sel{border-color:var(--o);background:#ff790014}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet"></head><body>
 <canvas id="bg"></canvas><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="mesh"></div>
 <div id="side"></div>
@@ -683,18 +617,17 @@ function mgAlerts(){
 const MG_ALERTS=mgAlerts();
 
 function mgsel(i,target=''){
- mgA=i;
+ mgA=(target==='mg-trend'&&mgA===i)?-1:i;
  if(V!=='multi'){mgPeriod='all';nav('multi');return}
  const main=$('main'),scroll=main.scrollTop;
  $('tip').style.opacity=0;
  main.innerHTML=VW.multi();
- tipb();
+ anim();
  main.scrollTop=scroll;
  if(target==='mg-trend'){
   const chart=$('mg-trend');
-  chart.scrollIntoView({block:'start'});
-  chart.focus({preventScroll:true});
- }else if(target){
+  if(chart)chart.scrollIntoView({block:'start',behavior:'smooth'});
+ }else if(target&&$(target)){
   $(target).focus({preventScroll:true});
  }
 }
@@ -705,87 +638,95 @@ function mgSetPeriod(period){
 const mgMonthLabel=m=>MS[m]+(m>=MG_ALERT_END?'*':'');
 const mgMonthClass=m=>m===MG_HIST_END?'mg-recent mg-start':m>MG_HIST_END?'mg-recent':m===MG_ALERT_END?'mg-partial':'';
 function mgChart(months,subject){
- const rawMax=Math.max(...months.flatMap(m=>[subject.b[m],subject.o[m]]),1);
- const step=Math.pow(10,Math.floor(Math.log10(rawMax)))/2;
- const max=Math.max(2,Math.ceil(rawMax/step)*step);
- return `<div class="mg-scroll" tabindex="0" role="region" aria-label="Gráfico mensal de Banco BMG e demais instituições">
- <div class="mg-chart" style="--chart-width:${months.length*32+44}px">
- <div class="mg-axis" aria-hidden="true"><span>${n(max)}</span><span>${n(max/2)}</span><span>0</span></div>
- <div class="mg-plot" style="--months:${months.length}">
- ${months.map(m=>{
-  const series=[[subject.b[m],MG_BMG],[subject.o[m],MG_OTHER]];
-  const label=`${ML[m]}${m>=MG_ALERT_END?' · cobertura parcial ou recorte':''}`;
-  return `<div class="mg-month ${m===MG_HIST_END?'new-start':''}"><div class="mg-columns ${m>=MG_HIST_END?'recent':m===MG_ALERT_END?'partial':''}" role="img" aria-label="${label}, Banco BMG ${n(series[0][0])}, demais instituições ${n(series[1][0])}" title="${label} · BMG ${n(series[0][0])} · Demais ${n(series[1][0])}">${series.map(([v,color])=>`<b aria-hidden="true" style="--height:${v/max*100}%;--series:${color}"></b>`).join('')}</div><span class="mg-month-label">${mgMonthLabel(m)}</span></div>`;
- }).join('')}</div></div></div>`;
+ const W=760,H=270,x0=46,st=(W-x0-8)/months.length,rawMax=Math.max(...months.flatMap(m=>[subject.b[m],subject.o[m]]),1);
+ const step=Math.pow(10,Math.floor(Math.log10(rawMax)))/2,mx=Math.max(2,Math.ceil(rawMax/step)*step);
+ const y=v=>H-38-v/mx*(H-70),bw=Math.min(24,st*.36),gap=Math.max(2,bw*.14);
+ const defs=`<defs><linearGradient id="mgb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB347"/><stop offset="1" stop-color="#FF7900"/></linearGradient><linearGradient id="mgo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4B5FD"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>`;
+ const grid=[0,.5,1].map(f=>`<line x1="${x0}" x2="${W}" y1="${y(mx*f)}" y2="${y(mx*f)}" stroke="#ffffff14" stroke-dasharray="3 5"/><text x="${x0-6}" y="${y(mx*f)+3}" text-anchor="end" style="font-size:9.5px">${n(mx*f)}</text>`).join('');
+ const cols=months.map((m,idx)=>{
+  const cx=x0+st*(idx+.5),bv=subject.b[m],ov=subject.o[m],tot=bv+ov;
+  const note=m===MG_ALERT_END?' (parcial · intimações até '+MG_DATE(IT.ult)+')':m>=MG_HIST_END?' (recorte · Demandas Atuais)':'';
+  const tip=esc(`${ML[m]}${note}\nBanco BMG: ${n(bv)} (${tot?pc(bv/tot):'0,0%'})\nDemais instituições: ${n(ov)} (${tot?pc(ov/tot):'0,0%'})\nTotal de vínculos: ${n(tot)}`);
+  const sep=m===MG_HIST_END&&idx>0?`<line x1="${x0+st*idx}" x2="${x0+st*idx}" y1="18" y2="${H-38}" stroke="#22D3EE" stroke-opacity=".55" stroke-dasharray="4 3"/>`:'';
+  const bg=m>=MG_HIST_END?`<rect x="${x0+st*idx+1}" y="18" width="${st-2}" height="${H-56}" rx="6" fill="rgba(34,211,238,.05)"/>`:m===MG_ALERT_END?`<rect x="${x0+st*idx+1}" y="18" width="${st-2}" height="${H-56}" rx="6" fill="rgba(167,139,250,.06)"/>`:'';
+  const bx=cx-bw-gap/2,ox=cx+gap/2;
+  return `${bg}${sep}<rect class="bar" x="${bx}" y="${y(bv)}" width="${bw}" height="${Math.max(H-38-y(bv),0)}" rx="4" fill="url(#mgb)" data-tip="${tip}"/>${bv?`<text x="${bx+bw/2}" y="${y(bv)-4}" text-anchor="middle" style="fill:#FFB347;font-size:8.5px;font-weight:700">${n(bv)}</text>`:''}<rect class="bar" x="${ox}" y="${y(ov)}" width="${bw}" height="${Math.max(H-38-y(ov),0)}" rx="4" fill="url(#mgo)" data-tip="${tip}"/>${ov?`<text x="${ox+bw/2}" y="${y(ov)-4}" text-anchor="middle" style="fill:#C4B5FD;font-size:8.5px;font-weight:700">${n(ov)}</text>`:''}<text x="${cx}" y="${H-18}" text-anchor="middle" style="font-size:10px;fill:${m>=MG_HIST_END?'#67e8f9':'#A7B0C8'}">${mgMonthLabel(m)}</text>`;
+ }).join('');
+ return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">${defs}${grid}${cols}</svg><div class="lg2"><span><i style="background:#FF7900"></i>Banco BMG</span><span><i style="background:#8B5CF6"></i>Demais instituições</span></div>`;
 }
 function mgRank(months,subject){
  const series=mgA<0?MG_UNIQUE:subject.pb;
- const items=series.map((values,k)=>[k,mgSum(values,months)])
-  .filter(([k,v])=>v&&IB[k]!=='Outras instituições')
-  .sort((a,b)=>b[1]-a[1]||IB[a[0]].localeCompare(IB[b[0]],'pt-BR')).slice(0,8);
- return items.length?`<ol class="mg-ranking">${items.map(([k,v])=>`<li><span>${esc(IB[k])}</span><b>${n(v)}</b><span aria-hidden="true" class="mg-rank-track"><i class="${k===0?'bmg':''}" style="--fill:${v/items[0][1]*100}%"></i></span></li>`).join('')}</ol>`:'<p class="sm mg-note">Sem instituições identificadas neste recorte.</p>';
+ const all=series.map((values,k)=>[k,mgSum(values,months)]).filter(([k,v])=>v&&IB[k]!=='Outras instituições');
+ const tot=sumv(all.map(x=>x[1]))||1;
+ const items=all.sort((a,b)=>b[1]-a[1]||IB[a[0]].localeCompare(IB[b[0]],'pt-BR')).slice(0,8);
+ const mx=Math.max(...items.map(x=>x[1]),1);
+ return items.length?items.map(([k,v])=>`<div class="row" style="cursor:default" data-tip="${esc(IB[k])}\n${n(v)} processos · ${pc(v/tot)}"><span class="${k===0?'o':''}" style="${k===0?'font-weight:700':''}">${esc(IB[k])}</span><div class="tr"><u class="${k===0?'bmg':''}" data-w="${v/mx*100}%"></u></div><span>${n(v)}</span><span class="sm">${pc(v/tot)}</span></div>`).join(''):'<span class="sm">Sem instituições identificadas neste recorte.</span>';
 }
 function mgBankTable(months,subject){
- const rows=subject.pb.map((series,k)=>({name:IB[k],series,total:mgSum(series,months)}))
+ const rows=subject.pb.map((series,k)=>({k,name:IB[k],series,total:mgSum(series,months)}))
   .filter(row=>row.total).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name,'pt-BR'));
- return rows.length?`<div class="mg-scroll" tabindex="0" role="region" aria-label="Tabela mensal por instituição"><table class="mg-table" aria-label="Vínculos de advogado e processo por instituição e mês">
- <thead><tr><th scope="col">Instituição</th>${months.map(m=>`<th scope="col" class="${mgMonthClass(m)}" title="${ML[m]}">${mgMonthLabel(m)}</th>`).join('')}<th scope="col">Total</th></tr></thead>
- <tbody>${rows.map(({name,series,total})=>`<tr><td>${esc(name)}</td>${months.map(m=>`<td class="${mgMonthClass(m)} ${series[m]?'':'mg-zero'}">${n(series[m])}</td>`).join('')}<td><b>${n(total)}</b></td></tr>`).join('')}</tbody>
- <tfoot><tr><td>Total de vínculos</td>${months.map(m=>`<td class="${mgMonthClass(m)}">${n(subject.b[m]+subject.o[m])}</td>`).join('')}<td>${n(mgSum(subject.b,months)+mgSum(subject.o,months))}</td></tr></tfoot>
- </table></div>`:'<p class="sm mg-note">Sem vínculos bancários registrados neste recorte.</p>';
+ const grand=mgSum(subject.b,months)+mgSum(subject.o,months)||1,mx=Math.max(...rows.map(r=>r.total),1);
+ return rows.length?`<div style="overflow:auto"><table class="gt2"><tr><th>#</th><th>Instituição</th>${months.map(m=>`<th class="${mgMonthClass(m)}" data-tip="${esc(ML[m])}">${mgMonthLabel(m)}</th>`).join('')}<th>Total</th><th>%</th><th></th></tr>${rows.map((r,idx)=>`<tr class="r" style="cursor:default"><td class="o">${idx+1}</td><td class="${r.k===0?'o':''}" style="${r.k===0?'font-weight:700':''}">${esc(r.name)}</td>${months.map(m=>`<td class="${mgMonthClass(m)} ${r.series[m]?'':'mg-zero'}" data-tip="${esc(r.name+'\n'+ML[m]+': '+n(r.series[m]))}">${n(r.series[m])}</td>`).join('')}<td><b>${n(r.total)}</b></td><td class="sm">${pc(r.total/grand)}</td><td style="min-width:80px"><div class="tr"><u class="${r.k===0?'bmg':''}" data-w="${r.total/mx*100}%"></u></div></td></tr>`).join('')}<tr style="font-weight:700;background:#ffffff08"><td></td><td>Total de vínculos</td>${months.map(m=>`<td class="${mgMonthClass(m)}">${n(subject.b[m]+subject.o[m])}</td>`).join('')}<td>${n(mgSum(subject.b,months)+mgSum(subject.o,months))}</td><td class="sm">100,0%</td><td></td></tr></table></div>`:'<span class="sm">Sem vínculos bancários registrados neste recorte.</span>';
 }
 function mgLawyerTable(months){
  const rows=MG_ORDER.map(i=>[i,mgSum(MG[i].b,months),mgSum(MG[i].o,months)])
   .sort((a,b)=>(b[1]+b[2])-(a[1]+a[2]));
- return `<div class="mg-scroll" tabindex="0" role="region" aria-label="Comparativo por advogado"><table class="mg-table" aria-label="Banco BMG e demais instituições por advogado">
- <thead><tr><th scope="col">Advogado</th><th scope="col">Banco BMG</th><th scope="col">Demais</th><th scope="col">Total</th><th scope="col">% BMG</th></tr></thead>
- <tbody>${rows.map(([i,b,o])=>`<tr class="${mgA===i?'selected':''}"><td><button type="button" onclick="mgsel(${i},'mg-trend')"${mgA===i?' aria-current="true"':''}>${esc(IA[i])}</button></td><td>${n(b)}</td><td>${n(o)}</td><td><b>${n(b+o)}</b></td><td>${b+o?pc(b/(b+o)):'—'}</td></tr>`).join('')}</tbody></table></div>`;
+ const mx=Math.max(...rows.map(r=>r[1]+r[2]),1);
+ return `<div style="overflow:auto"><table><tr><th>#</th><th>Advogado</th><th>Banco BMG</th><th>Demais</th><th>Total</th><th>% BMG</th><th>Volume</th><th>Proporção BMG × Demais</th></tr>${rows.map(([i,b,o],idx)=>{const t=b+o;return `<tr class="r ${mgA===i?'sel':''}" onclick="mgsel(${i},'mg-trend')"><td class="o">${idx+1}</td><td><b>${esc(IA[i])}</b></td><td class="o">${n(b)}</td><td>${n(o)}</td><td><b>${n(t)}</b></td><td>${t?pc(b/t):'—'}</td><td style="min-width:100px"><div class="tr"><u data-w="${t/mx*100}%"></u></div></td><td style="min-width:130px">${t?segbar([b,o],['#FF7900','#8B5CF6'],['Banco BMG','Demais instituições']):'—'}</td></tr>`}).join('')}</table></div><div class="lg2"><span><i style="background:#FF7900"></i>Banco BMG</span><span><i style="background:#8B5CF6"></i>Demais instituições</span></div>`;
 }
 function mgAlertPanel(alerts){
- const cards=items=>`<div class="mg-alerts">${items.map(a=>`<button type="button" class="al" style="--c:${a.col}" onclick="mgsel(${a.a},'mg-trend')"><span class="alh"><b>${esc(IA[a.a])}</b><span class="tag" style="color:${a.col};border-color:${a.col}">${a.k}</span></span><span class="sm">${a.txt}</span></button>`).join('')}</div>`;
- return alerts.length?cards(alerts.slice(0,4))+(alerts.length>4?`<details class="mg-details"><summary>Ver mais ${n(alerts.length-4)} sinais</summary>${cards(alerts.slice(4))}</details>`:'')
-  : `<p class="sm mg-note">${mgPeriod==='recent'?'Os sinais usam o histórico de janeiro a agosto.':'Nenhum sinal histórico para a seleção.'}</p>`;
+ if(!alerts.length)return `<span class="sm">${mgPeriod==='recent'?'Os sinais usam o histórico de janeiro a agosto.':'Nenhum sinal histórico para a seleção.'}</span>`;
+ return `<div class="mgal">${alerts.map(a=>`<div class="al ${mgA===a.a?'sel':''}" style="--c:${a.col}" onclick="mgsel(${a.a},'mg-trend')"><div class="alh"><b>${esc(IA[a.a])}</b><span class="tag" style="color:${a.col};border-color:${a.col}">${a.k}</span></div><p>${a.txt}</p><div class="alsp"><span>BMG ${sp(MG[a.a].b.slice(0,MG_ALERT_END))}</span><span>Demais ${sp(MG[a.a].o.slice(0,MG_ALERT_END))}</span></div></div>`).join('')}</div>`;
 }
 Object.assign(VW,{multi(){
- const months=MG_PERIODS.find(([id])=>id===mgPeriod)[2],subject=mgA<0?MG_TOTAL:MG[mgA];
+ const pObj=MG_PERIODS.find(([id])=>id===mgPeriod),months=pObj[2],subject=mgA<0?MG_TOTAL:MG[mgA];
  const b=mgSum(subject.b,months),o=mgSum(subject.o,months),total=b+o;
  const alerts=mgPeriod==='recent'?[]:MG_ALERTS.filter(a=>mgA<0||a.a===mgA);
  const subjectName=mgA<0?'Todos os advogados':esc(IA[mgA]);
  const covered=months.filter(m=>m>=MG_ALERT_END);
- const coverage=covered.length?`<p class="sm mg-note">${covered.includes(MG_ALERT_END)?`* Setembro é parcial na fonte de intimações (até ${MG_DATE(IT.ult)}).`:''}${covered.some(m=>m>=MG_HIST_END)?` * Outubro e novembro são recortes de Demandas Atuais (${IT_UPDATE.start.slice(0,5)} a ${IT_UPDATE.end}).`:''}</p>`:'';
- const metric=(title,value,sub,cls='')=>`<div class="card ${cls}"><span class="lab">${title}</span><div class="kv">${value==null?'—':n(value)}</div><span class="sm">${sub}</span></div>`;
- return `<section class="migration" aria-labelledby="mg-title">
- <header class="card mg-hero"><div class="mg-heading"><div><h2 id="mg-title">Migração entre bancos</h2><p class="sm">Ajuizamentos de ${IA.length} advogados monitorados em 2026</p></div></div>
- <div class="mg-sources"><span class="tag mg-source">Intimações · até ${MG_DATE(IT.ult)}</span><span class="tag mg-source new">Demandas Atuais · ${IT_UPDATE.start.slice(0,5)} a ${IT_UPDATE.end} · ${n(MG_SOURCE.financial)} processos com instituição identificada</span></div>
- <div class="mg-filters">
- <label><span class="sm">Período</span><select id="mg-period" onchange="mgSetPeriod(this.value)">${MG_PERIODS.map(([id,label])=>`<option value="${id}"${id===mgPeriod?' selected':''}>${label}</option>`).join('')}</select></label>
- <label><span class="sm">Advogado</span><select id="mg-lawyer" onchange="mgsel(+this.value,'mg-lawyer')"><option value="-1"${mgA<0?' selected':''}>Todos os advogados</option>${MG_ORDER.map(i=>`<option value="${i}"${i===mgA?' selected':''}>${esc(IA[i])}</option>`).join('')}</select></label>
- </div></header>
- <div class="mg-kpis">
- ${metric('Vínculos por instituição',total,'Advogado × processo × instituição')}
- ${metric('Banco BMG',b,total?pc(b/total)+' dos vínculos':'Sem vínculos na seleção','mg-bmg')}
- ${metric('Demais instituições',o,total?pc(o/total)+' dos vínculos':'Sem vínculos na seleção','mg-others')}
- ${metric('Sinais históricos',mgPeriod==='recent'?null:alerts.length,mgPeriod==='recent'?'Calculados com as intimações de jan–ago':'Janeiro a agosto de 2026')}
+ const coverage=covered.length?`<div class="sm" style="margin-top:8px">${covered.includes(MG_ALERT_END)?`* Setembro é parcial na fonte de intimações (até ${MG_DATE(IT.ult)}).`:''}${covered.some(m=>m>=MG_HIST_END)?` * Outubro e novembro são recortes de Demandas Atuais (${IT_UPDATE.start.slice(0,5)} a ${IT_UPDATE.end}).`:''}</div>`:'';
+ const ch=[];
+ if(mgPeriod!=='all')ch.push([`Período: ${pObj[1]}`,'mgSetPeriod("all")']);
+ if(mgA>=0)ch.push([`Advogado: ${IA[mgA]}`,'mgsel(-1)']);
+ const radarIdx=mgA>=0?D.A.findIndex(x=>normN(x)===normN(IA[mgA])):-1;
+ return `<div id="fb">
+  <label class="fs">Período<select id="mg-period" onchange="mgSetPeriod(this.value)">${MG_PERIODS.map(([id,label])=>`<option value="${id}"${id===mgPeriod?' selected':''}>${label}</option>`).join('')}</select></label>
+  <label class="fs">Advogado monitorado<select id="mg-lawyer" onchange="mgsel(+this.value,'mg-lawyer')"><option value="-1"${mgA<0?' selected':''}>Todos os advogados (${IA.length})</option>${MG_ORDER.map(i=>`<option value="${i}"${i===mgA?' selected':''}>${esc(IA[i])}</option>`).join('')}</select></label>
+  ${radarIdx>=0?`<button class="btn or" onclick="setF('a',${radarIdx})">👤 Abrir perfil no Radar</button>`:''}
+  <button class="btn" onclick="mgPeriod='all';mgsel(-1)">↺ Limpar</button>
  </div>
- <div class="mg-split">
- <section class="card" id="mg-trend" tabindex="-1" aria-labelledby="mg-trend-title"><div class="mg-heading"><div><h3 id="mg-trend-title">Evolução mensal</h3><p class="sm">${subjectName}</p></div></div>
- <div class="mg-key"><span><i style="--series:${MG_BMG}"></i>Banco BMG</span><span><i style="--series:${MG_OTHER}"></i>Demais instituições</span></div>
- ${mgChart(months,subject)}${coverage}</section>
- <section class="card"><div class="mg-heading"><div><h3>Instituições mais acionadas</h3><p class="sm">Processos por instituição${mgA<0?', sem duplicar advogados':''}</p></div></div>${mgRank(months,subject)}</section>
+ <div id="chips">${ch.map(x=>`<span class="ch" onclick='${x[1]}'>${esc(x[0])} ×</span>`).join('')}</div>
+ <div class="hero">
+  <div>
+   <span class="lab" style="color:#fff9">Monitoramento externo · 2026 · ${esc(pObj[1])}</span>
+   <h2>Migração entre bancos · ${subjectName}</h2>
+   <span style="opacity:.85">Ajuizamentos de ${IA.length} advogados monitorados · Intimações (até ${MG_DATE(IT.ult)}) + Demandas Atuais (${IT_UPDATE.start.slice(0,5)} a ${IT_UPDATE.end} · ${n(MG_SOURCE.financial)} processos com instituição identificada)</span>
+  </div>
+  <div class="hs">
+   <b>${total?pc(b/total):'—'}</b>
+   <span>Participação Banco BMG no recorte</span>
+  </div>
  </div>
- <section class="card"><div class="mg-heading"><div><h3>Detalhamento mês a mês</h3><p class="sm">Volume por instituição · ${subjectName}</p></div></div>${mgBankTable(months,subject)}${coverage}</section>
- <section class="card"><div class="mg-heading"><div><h3>Comparativo por advogado</h3><p class="sm">Selecione um nome para abrir o detalhamento.</p></div></div>${mgLawyerTable(months)}</section>
- <section class="card"><div class="mg-heading"><div><h3>Sinais de mudança no padrão</h3><p class="sm">Variações observadas no histórico de janeiro a agosto.</p></div></div>${mgAlertPanel(alerts)}</section>
- <section class="card mg-method">
- <details class="mg-details"><summary>Fontes e critérios de contagem</summary>
- <ul class="sm">
- <li><b>DEMANDAS ATUAIS.xlsx</b> reúne ${n(MG_SOURCE.total)} processos únicos entre ${IT_UPDATE.start} e ${IT_UPDATE.end}. ${n(MG_SOURCE.financial)} têm instituição financeira identificada, incluindo ${n(MG_SOURCE.bmg)} contra o Banco BMG. ${n(MG_SOURCE.missing)} vieram sem parte informada e ${n(MG_SOURCE.nonbank)} tinham partes sem instituição financeira identificada.</li>
- <li>${IT_UPDATE.periods.map(([m,s])=>`${ML[m]} registrou ${n(s.financial)} de ${n(s.total)} processos com instituição financeira identificada`).join('. ')}. A planilha é um recorte. A cobertura varia entre meses e fontes.</li>
- <li>Um processo pode gerar um vínculo por instituição para o mesmo advogado. Na planilha, ${n(MG_SOURCE.joint)} processo envolve duas instituições. O ranking geral usa processos distintos por instituição, conforme os totais disponíveis em cada fonte. A categoria histórica “Outras instituições” entra nos totais e no detalhamento.</li>
- <li>Os nomes foram padronizados pelos rótulos do histórico e da planilha. Agibank e Agibank Financeira aparecem como Agibank. Agiplan Financeira mantém um rótulo próprio.</li>
- <li>O histórico de intimações deixa ${n(IT.sem)} registros sem data de ajuizamento fora dos totais mensais. Usa a data de ajuizamento, que pode divergir da data de cadastro do Gestor Jurídico.</li>
- <li>Os sinais usam janeiro a agosto e indicam alterações no volume observado. Queda acentuada avalia se os volumes mensais restantes ficaram em até 10% da média anterior, com piso de um caso. Redução seletiva e alta comparam mar–mai a jun–ago. Picos exigem ao menos 40 casos no mês e 2,5 vezes a média dos demais meses.</li>
- </ul></details></section></section>`;
+ <div class="g k4">
+  ${kpv('Vínculos por instituição',total,'Advogado × processo × instituição','',{sp:months.map(m=>subject.b[m]+subject.o[m])})}
+  ${kpv('Banco BMG',b,total?pc(b/total)+' dos vínculos':'Sem vínculos na seleção','o',{sp:months.map(m=>subject.b[m])})}
+  ${kpv('Demais instituições',o,total?pc(o/total)+' dos vínculos':'Sem vínculos na seleção','',{sp:months.map(m=>subject.o[m])})}
+  ${kpv('Sinais históricos',mgPeriod==='recent'?0:alerts.length,mgPeriod==='recent'?'Calculados com as intimações de jan–ago':'Janeiro a agosto de 2026','',mgPeriod==='recent'?{t:'—'}:{})}
+ </div>
+ <div class="g g2">
+  <div class="card" id="mg-trend" tabindex="-1"><h3>Evolução mensal <span class="sm">· ${subjectName}</span></h3>${mgChart(months,subject)}${coverage}</div>
+  <div class="card"><h3>Instituições mais acionadas <span class="sm">· processos por instituição${mgA<0?', sem duplicar advogados':''}</span></h3>${mgRank(months,subject)}</div>
+ </div>
+ <div class="card" style="margin-bottom:14px"><h3>Sinais de mudança no padrão <span class="sm">· variações observadas no histórico de janeiro a agosto · clique para filtrar</span></h3>${mgAlertPanel(alerts)}</div>
+ <div class="card" style="margin-bottom:14px"><h3>Comparativo por advogado <span class="sm">· clique em um nome para filtrar o painel</span></h3>${mgLawyerTable(months)}</div>
+ <div class="card" style="margin-bottom:14px"><h3>Detalhamento mês a mês <span class="sm">· volume por instituição · ${subjectName}</span></h3>${mgBankTable(months,subject)}${coverage}</div>
+ <div class="card"><h3>Fontes e critérios de contagem</h3>
+  <div style="margin-bottom:8px"><span class="lab o">Demandas Atuais</span><div class="sm"><b>DEMANDAS ATUAIS.xlsx</b> reúne ${n(MG_SOURCE.total)} processos únicos entre ${IT_UPDATE.start} e ${IT_UPDATE.end}. ${n(MG_SOURCE.financial)} têm instituição financeira identificada, incluindo ${n(MG_SOURCE.bmg)} contra o Banco BMG. ${n(MG_SOURCE.missing)} vieram sem parte informada e ${n(MG_SOURCE.nonbank)} tinham partes sem instituição financeira identificada.</div></div>
+  <div style="margin-bottom:8px"><span class="lab o">Cobertura por mês</span><div class="sm">${IT_UPDATE.periods.map(([m,s])=>`${ML[m]} registrou ${n(s.financial)} de ${n(s.total)} processos com instituição financeira identificada`).join('. ')}. A planilha é um recorte. A cobertura varia entre meses e fontes.</div></div>
+  <div style="margin-bottom:8px"><span class="lab o">Vínculos e instituições</span><div class="sm">Um processo pode gerar um vínculo por instituição para o mesmo advogado. Na planilha, ${n(MG_SOURCE.joint)} processo envolve duas instituições. O ranking geral usa processos distintos por instituição, conforme os totais disponíveis em cada fonte. A categoria histórica “Outras instituições” entra nos totais e no detalhamento.</div></div>
+  <div style="margin-bottom:8px"><span class="lab o">Padronização e datas</span><div class="sm">Os nomes foram padronizados pelos rótulos do histórico e da planilha. Agibank e Agibank Financeira aparecem como Agibank. Agiplan Financeira mantém um rótulo próprio. O histórico de intimações deixa ${n(IT.sem)} registros sem data de ajuizamento fora dos totais mensais e usa a data de ajuizamento, que pode divergir da data de cadastro do Gestor Jurídico.</div></div>
+  <div><span class="lab o">Regras dos sinais históricos</span><div class="sm">Os sinais usam janeiro a agosto e indicam alterações no volume observado. Queda acentuada avalia se os volumes mensais restantes ficaram em até 10% da média anterior, com piso de um caso. Redução seletiva e alta comparam mar–mai a jun–ago. Picos exigem ao menos 40 casos no mês e 2,5 vezes a média dos demais meses.</div></div>
+ </div>`;
 }});
 const pf0=VW.perfil;
 VW.perfil=function(){
