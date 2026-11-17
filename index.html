@@ -93,6 +93,8 @@ th.hl,td.hl{background:#ff79000f}tr.sel td{background:#ff790014}.gt2 td,.gt2 th{
 .card:has(>.dw){display:flex;flex-direction:column}.card>.dw{flex:1}
 .dw{justify-content:center;align-items:center;gap:clamp(16px,2.6vw,56px);flex-wrap:nowrap;align-content:center}
 .dsv{width:clamp(130px,18vw,360px);height:auto;flex:none}
+.k3 .dsv{width:clamp(110px,10.5vw,160px)}
+.k3 .dw{gap:16px}
 .dw .lg{flex:1 1 200px;min-width:0;max-width:620px}@media(max-width:700px){.dw{flex-wrap:wrap}.dsv{width:200px}}
 .dw .lg div{display:flex;align-items:center;gap:8px;font-size:clamp(12px,.85vw,15px);margin:0;padding:6px 0;border-bottom:1px solid #ffffff10}
 .g2>.card:has(>.dw){align-self:stretch}@media(max-width:1400px){.g2>.card:has(>.dw){align-self:start}}.dw .lg div span{flex:1;min-width:0}.dw .lg i{flex:none}
@@ -207,7 +209,7 @@ function heat(rs,key,names,click,mk='m'){const nm=NM(),c=cnt(rs,key,names.length
 function pareto(rs,key,names){const a=cnt(rs,key,names.length),o=rk(a),T=rs.length||1,N=Math.min(o.length,60);let c=0;const P=o.slice(0,N).map((i,k)=>{c+=a[i];return[50+k/Math.max(N-1,1)*720,240-c/T*200,c/T]}),pt=P.map(p=>p[0]+','+p[1]).join(' ');
  return `<svg viewBox="0 0 800 270" width="100%"><defs><linearGradient id="gp2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B5CF6" stop-opacity=".5"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient></defs><path d="M50,240 L${pt.replace(/ /g,' L')} L770,240Z" fill="url(#gp2)"/><polyline class="ln" points="${pt}" fill="none" stroke="#C084FC" stroke-width="2.5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="transition:stroke-dashoffset 1.5s"/>${[10,25,50].filter(k=>k<=N).map(k=>`<circle cx="${P[k-1][0]}" cy="${P[k-1][1]}" r="4.5" fill="#FF7900"/><text x="${P[k-1][0]}" y="${P[k-1][1]+18}" text-anchor="middle" style="fill:#fff">Top ${k}: ${pc(P[k-1][2])}</text>`).join('')}<text x="50" y="262">Ordenados por volume → participação acumulada</text></svg>`}
 function dual(L,B,Ln,o={}){const W=760,H=290,x0=46,st=(W-x0-8)/L.length,mx=Math.max(...B,...Ln,1),y=v=>H-38-v/mx*(H-78),bw=Math.min(44,st*.5),px=i=>x0+st*(i+.5);
- const bs=B.map((v,i)=>`<rect x="${px(i)-bw/2}" y="${y(v)}" width="${bw}" height="${Math.max(H-38-y(v),0)}" rx="5" fill="url(#dgb)" data-tip="${esc(L[i]+'\n'+(o.bl||'Encerrados')+': '+n(v)+'\n'+(o.ll||'Entradas')+': '+n(Ln[i]))}"/><text x="${px(i)}" y="${y(v)-5}" text-anchor="middle" style="fill:#fff;font-size:10px;font-weight:700">${v?n(v):''}</text>`).join('');
+ const bs=B.map((v,i)=>{const by=y(v),ly=y(Ln[i]),ty=Math.abs(by-ly)<14?Math.min(by,ly)-8:by-5;return `<rect x="${px(i)-bw/2}" y="${by}" width="${bw}" height="${Math.max(H-38-by,0)}" rx="5" fill="url(#dgb)" data-tip="${esc(L[i]+'\n'+(o.bl||'Encerrados')+': '+n(v)+'\n'+(o.ll||'Entradas')+': '+n(Ln[i]))}"/><text x="${px(i)}" y="${ty}" text-anchor="middle" style="fill:#fff;font-size:10px;font-weight:700">${v?n(v):''}</text>`}).join('');
  const pts=Ln.map((v,i)=>px(i)+','+y(v)).join(' ');
  return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto"><defs><linearGradient id="dgb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>${[0,.5,1].map(f=>`<line x1="${x0}" x2="${W}" y1="${y(mx*f)}" y2="${y(mx*f)}" stroke="#ffffff14"/><text x="${x0-6}" y="${y(mx*f)+3}" text-anchor="end" style="font-size:9px">${n(mx*f)}</text>`).join('')}${bs}<polyline points="${pts}" fill="none" stroke="#FF7900" stroke-width="2.4" stroke-linejoin="round"/>${Ln.map((v,i)=>`<circle cx="${px(i)}" cy="${y(v)}" r="3.6" fill="#FF7900" stroke="#fff" stroke-width="1" data-tip="${esc(L[i]+'\n'+(o.ll||'Entradas')+': '+n(v))}"/>`).join('')}${L.map((l,i)=>`<text x="${px(i)}" y="${H-18}" text-anchor="middle" style="font-size:10px">${l}</text>`).join('')}</svg><div class="lg2"><span><i style="background:#8B5CF6"></i>${o.bl||'Encerrados'}</span><span><i style="background:#FF7900"></i>${o.ll||'Entradas'}</span></div>`}
 function stk(L,S,cols,names,o={}){const W=760,H=270,x0=46,st=(W-x0-8)/L.length,tot=L.map((_,i)=>S.reduce((a,s)=>a+s[i],0)),mx=o.pct?1:Math.max(...tot,1),y=v=>H-38-v/mx*(H-70),bw=Math.min(50,st*.6);
@@ -288,12 +290,72 @@ function prodRank(){const S=agg2('p'),a=S.filter(s=>s.t).sort((x,y)=>y.t-x.t).sl
 function gHome(){const S=agg2('g'),T=sumv(S.map(s=>s.t))||1,L=S.filter(s=>s.t).sort((a,b)=>b.t-a.t).slice(0,10),mx=Math.max(...L.map(s=>s.t),1);
  return `<div class="card" style="margin-bottom:14px"><h3>Entradas por grupo ofensor <span class="sm">· ${F.y} · Dt. Cadastro</span> <button class="btn" style="float:right" onclick="nav('grupos')">Ver todos os grupos</button></h3><div style="overflow:auto"><table><tr><th>#</th><th>Grupo ofensor</th><th>Nível</th><th>Advog.</th><th>Entradas</th><th>% entradas</th><th></th><th>Encerrados</th><th>Êxito</th><th>Estoque</th><th>Tendência</th></tr>${L.map((s,k)=>`<tr class="r" onclick="gopen(${s.i})"><td class="o">${k+1}</td><td>${esc(D.G[s.i])}</td><td>${lvTag(glv(s))}</td><td>${n(s.ad)}</td><td>${n(s.t)}</td><td>${pc(s.t/T)}</td><td><div class="tr"><u data-w="${s.t/mx*100}%"></u></div></td><td>${n(s.e)}</td><td>${s.ex==null?'—':pc(s.ex)}</td><td>${n(s.est)}</td><td style="color:${s.b.col}">${s.b.i} ${s.b.c}</td></tr>`).join('')}</table></div><p class="sm" style="margin-top:8px">Grupo/parceria conforme Lista de Agressores; advogados fora da lista ficam em “Fora da lista (sem grupo)”. Clique em um grupo para abrir o perfil.</p></div>`}
 /* ---- corpo de perfil (ofensor / grupo) ---- */
-function profBody(rs,ce,es){const nm=NM(),m=cnt(rs,'m',12),b=beh(m),res=cres(ce),ex=exito(res),pm=cnt(ce,'tm',12).slice(0,nm),pk=Math.max(...m.slice(0,nm),0),SP=aggOn(rs,ce,es,'p',D.P.length),su=cnt(rs,'u',D.U.length),sp_=cnt(rs,'p',D.P.length),mo=cnt(ce,'mo',D.MOT.length),fs=cnt(es,'fs',D.FS.length),dias=ce.map(r=>r.d);
- return `<div class="g k4">${kpv('Entradas em '+F.y,rs.length,pc(rs.length/(RY[F.y]||[]).length)+' de todas as causas do ano','',{sp:m.slice(0,nm)})}${kpv('Encerrados em '+F.y,ce.length,ex==null?'sem improcedência/condenação':'êxito '+pc(ex),'',{sp:pm})}${kpv('Estoque em curso',es.length,'causas ativas em '+D.ult)}${kpv('Pico mensal',pk,rs.length?ML[m.indexOf(pk)]:'—')}</div>
- <div class="g k3"><div class="card"><span class="lab">Comportamento</span><div class="kv" style="color:${b.col}">${b.i} ${b.d==null?'—':dl(b.d)}</div><span class="sm">${BW()[3]} vs ${BW()[2]} · limiar ±20%</span></div><div class="card"><span class="lab">Resultado dos encerrados</span>${ce.length?donut(res.map((v,k)=>[ZRN[k],v,ZRC[k]]).filter(x=>x[1]),'encerrados'):`<div class="sm" style="margin-top:8px">Nenhuma causa encerrada em ${F.y}.</div>`}</div><div class="card"><span class="lab">Tempo até encerrar</span>${dias.length?`<div class="kv o">${dd(med(dias))}</div><span class="sm">mediana · ${n(dias.length)} causas · sem defesa: ${n(ce.filter(r=>r.sd).length)}</span>`:'<div class="sm" style="margin-top:8px">—</div>'}</div></div>
- <div class="g g2"><div class="card"><h3>Entradas × encerrados por mês · ${F.y}</h3>${dual(MS.slice(0,nm),pm,m.slice(0,nm))}</div><div class="card"><h3>Atuação por UF</h3>${bars(rk(su).slice(0,6).map(k=>[D.U[k],su[k],k]),rs.length||1,k=>`setF('u',${k})`)||'<span class="sm">—</span>'}<h3 style="margin-top:16px">Produtos (entradas)</h3>${bars(rk(sp_).slice(0,6).map(k=>[D.P[k],sp_[k],k]),rs.length||1,k=>`setF('p',${k})`)||'<span class="sm">—</span>'}</div></div>
+function profBody(rs,ce,es){const nm=NM(),m=cnt(rs,'m',12),b=beh(m),res=cres(ce),ex=exito(res),pm=cnt(ce,'tm',12).slice(0,nm),pk=Math.max(...m.slice(0,nm),0),pkE=Math.max(...pm,0),SP=aggOn(rs,ce,es,'p',D.P.length),su=cnt(rs,'u',D.U.length),sp_=cnt(rs,'p',D.P.length),mo=cnt(ce,'mo',D.MOT.length),fs=cnt(es,'fs',D.FS.length),dias=ce.map(r=>r.d),meanD=dias.length?sumv(dias)/dias.length:0,sd=ce.filter(r=>r.sd).length,vl=vlast(m);
+ const fxD=[['Até 6 meses',0,183],['6 a 12 meses',183,365],['1 a 2 anos',365,730],['2 a 3 anos',730,1095],['Mais de 3 anos',1095,1e9]].map((f,k)=>[f[0],dias.filter(d=>d>=f[1]&&d<f[2]).length,k]);
+ return `<div class="g k4">${kpv('Entradas em '+F.y,rs.length,pc(rs.length/((RY[F.y]||[]).length||1))+' de todas as causas do ano','',{sp:m.slice(0,nm)})}${kpv('Encerrados em '+F.y,ce.length,ex==null?'sem improcedência/condenação':'taxa de êxito '+pc(ex),'',{sp:pm})}${kpv('Estoque em curso',es.length,'causas ativas em '+D.ult+' · prov. '+mi(pv(es.length)))}${kpv('Pico mensal ('+F.y+')',pk,rs.length?ML[m.indexOf(pk)]+' · média '+fx1(rs.length/nm)+'/mês':'—')}</div>
+ <div class="g k3">
+  <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+   <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="lab">Comportamento · tendência</span><span class="tag" style="color:${b.col};border-color:${b.col}">${b.i} ${b.c}</span></div>
+    <div class="kv" style="color:${b.col};margin:6px 0 2px">${b.i} ${b.d==null?'—':dl(b.d)}</div>
+    <span class="sm">Comparativo ${BW()[3]} vs ${BW()[2]} · limiar ±20%</span>
+    <div class="spl" style="margin:8px 0 4px">${sp(m.slice(0,nm))}</div>
+   </div>
+   <div class="mg" style="grid-template-columns:1fr 1fr;margin:8px 0 0">
+    <div class="mn"><span class="lab">${BW()[2]}</span><b>${n(b.A)}</b><small>média ${fx1(b.A/3)}/mês</small></div>
+    <div class="mn"><span class="lab">${BW()[3]}</span><b>${n(b.B)}</b><small>média ${fx1(b.B/3)}/mês</small></div>
+    <div class="mn"><span class="lab">Último mês (${MS[lv()]})</span><b class="${vl==null?'':vl<=0?'up':'dn'}">${vl==null?'—':dl(vl)}</b><small>${n(m[lv()-1]||0)} → ${n(Math.round(nzm(m,lv())))}</small></div>
+    <div class="mn"><span class="lab">Projeção ${F.y}</span><b>${n(pj(m))}</b><small>média ${fx1(rs.length/nm)}/mês</small></div>
+   </div>
+  </div>
+  <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+   <span class="lab">Resultado dos encerrados · ${F.y}</span>
+   ${ce.length?donut(res.map((v,k)=>[ZRN[k],v,ZRC[k]]).filter(x=>x[1]),'encerrados'):`<div class="sm" style="margin:24px 0">Nenhuma causa encerrada em ${F.y}.</div>`}
+   <div class="mg" style="grid-template-columns:repeat(3,1fr);margin:10px 0 0">
+    <div class="mn"><span class="lab">Taxa de êxito</span><b class="o">${ex==null?'—':pc(ex)}</b><small>${n(res[0])} improc. / ${n(res[2])} cond.</small></div>
+    <div class="mn"><span class="lab">Saldo ${F.y}</span><b class="${rs.length>=ce.length?'dn':'up'}">${rs.length>=ce.length?'+':'−'}${n(Math.abs(rs.length-ce.length))}</b><small>entradas − baixas</small></div>
+    <div class="mn"><span class="lab">Reposição</span><b>${rs.length?pc(ce.length/rs.length):'—'}</b><small>baixas ÷ entradas</small></div>
+   </div>
+  </div>
+  <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+   <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="lab">Tempo até encerrar</span><span class="sm">média: <b>${dias.length?dd(meanD):'—'}</b></span></div>
+    ${dias.length?`<div class="kv o" style="margin:6px 0 2px">${dd(med(dias))}</div><span class="sm">mediana de <b>${n(dias.length)}</b> causas · sem defesa: <b>${n(sd)}</b> (${pc(sd/(ce.length||1))})</span>`:'<div class="sm" style="margin-top:8px">Sem encerramentos no período.</div>'}
+   </div>
+   <div style="margin-top:10px">
+    <span class="lab" style="display:block;margin-bottom:4px">Distribuição por duração</span>
+    ${dias.length?bars(fxD.filter(x=>x[1]),dias.length,()=>''):'<span class="sm">—</span>'}
+   </div>
+  </div>
+ </div>
+ <div class="g g2">
+  <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+   <div><h3>Entradas × encerrados por mês · ${F.y}</h3>${dual(MS.slice(0,nm),pm,m.slice(0,nm))}</div>
+   <div class="mg" style="margin:10px 0 0">
+    <div class="mn"><span class="lab">Total entradas</span><b>${n(rs.length)}</b><small>média ${fx1(rs.length/nm)}/mês</small></div>
+    <div class="mn"><span class="lab">Total encerrados</span><b>${n(ce.length)}</b><small>média ${fx1(ce.length/nm)}/mês</small></div>
+    <div class="mn"><span class="lab">Mês pico (entradas)</span><b class="o">${rs.length&&pk?ML[m.indexOf(pk)]:'—'}</b><small>${pk?n(pk)+' causas':'—'}</small></div>
+    <div class="mn"><span class="lab">Mês pico (baixas)</span><b>${ce.length&&pkE?ML[pm.indexOf(pkE)]:'—'}</b><small>${pkE?n(pkE)+' causas':'—'}</small></div>
+   </div>
+  </div>
+  <div class="card" style="display:flex;flex-direction:column;justify-content:space-between">
+   <div>
+    <h3>Atuação por UF <span class="sm">· entradas em ${F.y}</span></h3>${bars(rk(su).slice(0,5).map(k=>[D.U[k]+' · '+(UN[D.U[k]]||''),su[k],k]),rs.length||1,k=>`setF('u',${k})`)||'<span class="sm">—</span>'}
+    <h3 style="margin-top:14px">Produtos acionados <span class="sm">· entradas em ${F.y}</span></h3>${bars(rk(sp_).slice(0,5).map(k=>[D.P[k],sp_[k],k]),rs.length||1,k=>`setF('p',${k})`)||'<span class="sm">—</span>'}
+   </div>
+   <div style="margin-top:14px;padding-top:12px;border-top:1px solid #ffffff12">
+    <span class="lab">Impacto financeiro estimado e carteira ativa</span>
+    <div class="mg" style="grid-template-columns:1fr 1fr;margin:8px 0 0">
+     <div class="mn"><span class="lab">Estoque em curso</span><b>${n(es.length)}</b><small>causas ativas até ${D.ult}</small></div>
+     <div class="mn"><span class="lab">Provisão do estoque</span><b class="o">${mi(pv(es.length))}</b><small>ticket R$ ${n(PR.t)} · perda ${PR.p}%</small></div>
+     <div class="mn"><span class="lab">Provisão entradas ${F.y}</span><b>${mi(pv(rs.length))}</b><small>${n(rs.length)} novas causas</small></div>
+     <div class="mn"><span class="lab">Custo defesa (estoque)</span><b>${mi(es.length*PR.c)}</b><small>R$ ${n(PR.c)}/processo</small></div>
+    </div>
+   </div>
+  </div>
+ </div>
  <div class="card" style="margin-bottom:14px"><h3>Encerramentos por produto <span class="sm">· tipo de encerramento</span></h3>${rtab(SP,'Produto',s=>esc(D.P[s.i]),k=>`setF('p',${k})`,10)}</div>
- <div class="g g3"><div class="card"><h3>Tipo de encerramento <span class="sm">· motivo</span></h3>${bars(rk(mo).slice(0,8).map(k=>[D.MOT[k][0],mo[k],k]),ce.length||1,()=>'')||'<span class="sm">—</span>'}</div><div class="card"><h3>Estoque por fase</h3>${bars(rk(fs).slice(0,6).map(k=>[D.FS[k],fs[k],k]),es.length||1,()=>'')||'<span class="sm">—</span>'}</div><div class="card"><h3>Estoque por safra</h3>${bars(rk(cnt(es,'y',2030)).slice(0,6).map(k=>[String(k),cnt(es,'y',2030)[k],k]),es.length||1,()=>'')||'<span class="sm">—</span>'}</div></div>`}
+ <div class="g k3"><div class="card"><h3>Tipo de encerramento <span class="sm">· motivo</span></h3>${bars(rk(mo).slice(0,8).map(k=>[D.MOT[k][0],mo[k],k]),ce.length||1,()=>'')||'<span class="sm">—</span>'}</div><div class="card"><h3>Estoque por fase</h3>${bars(rk(fs).slice(0,6).map(k=>[D.FS[k],fs[k],k]),es.length||1,()=>'')||'<span class="sm">—</span>'}</div><div class="card"><h3>Estoque por safra</h3>${bars(rk(cnt(es,'y',2030)).slice(0,6).map(k=>[String(k),cnt(es,'y',2030)[k],k]),es.length||1,()=>'')||'<span class="sm">—</span>'}</div></div>`}
 const VW={
 geral(){const rs=rec(),t=rs.length,nm=NM(),m=cnt(rs,'m',12),ad=cnt(rs,'a',D.A.length),o=rk(ad),t10=sumv(o.slice(0,10).map(i=>ad[i])),mAll=cnt(rec(['m']),'m',12),v=vlast(mAll),c=cnt(rs,'u',D.U.length),p=cnt(rs,'p',D.P.length),rg={},ce=rce(),res=cres(ce),ex=exito(res),es=rst(),gg=cnt(rs,'g',D.G.length),go=rk(gg),lc=cnt(rs,'l',4),lo=rk(lc);
  rs.forEach(r=>{const g=RN[r.rg];rg[g]=(rg[g]||0)+1});
@@ -317,10 +379,11 @@ grupos(){const S=agg2('g'),act=S.filter(s=>s.t),T=sumv(S.map(s=>s.t))||1,nm=NM()
  <div class="card"><h3>Todos os grupos</h3><input placeholder="Filtrar grupo…" value="${esc(gq)}" oninput="gq=this.value;gpg=0;$('gt2').innerHTML=gtbl(25,true);anim()" style="margin-bottom:10px;width:300px"><div id="gt2">${gtbl(25,true)}</div></div>`},
 grupo(){const g=gf;if(g==null)return VW.grupos();const rs=rec(['g']).filter(r=>r.g==g),ce=rce(['g']).filter(r=>r.g==g),es=rst(['g']).filter(r=>r.g==g),mem=D.AG.map((x,i)=>x==g?i:-1).filter(i=>i>=0),b=beh(cnt(rs,'m',12)),lc=cnt(rs,'l',4),Sa=aggOn(rs,ce,es,'a',D.A.length),T=rs.length||1;
  const lm=Array(4).fill(0);mem.forEach(i=>lm[D.AL[i]]++);const rows=Sa.filter(s=>s.t||s.e||s.est).sort((x,y)=>y.t-x.t||y.est-x.est);
- return `<button class="btn" onclick="V='grupos';draw()">← Voltar aos grupos</button><h2 style="margin-top:12px">${esc(D.G[g])} <span class="tag" style="color:${b.col};border-color:${b.col}">${b.i} ${b.c}</span></h2><div style="margin:-6px 0 12px" class="sm">${mem.length} advogado(s) no grupo · ${lm.map((v,i)=>v?lvTag(i)+' ×'+v+'&nbsp; ':'').join('')}</div>
+ return `<button class="btn" onclick="V='grupos';draw()">← Voltar aos grupos</button><h2 style="margin-top:12px">${esc(D.G[g])} <span class="tag" style="color:${b.col};border-color:${b.col}">${b.i} ${b.c}</span> ${(MED_BY_G.get(g)||[]).length?`<span class="tag" style="color:#FF7900;border-color:#FF7900;background:#ff790018">🛡 ${n(sumv((MED_BY_G.get(g)||[]).map(x=>x.t)))} medida(s) no grupo</span>`:''}</h2><div style="margin:-6px 0 12px" class="sm">${mem.length} advogado(s) no grupo · ${lm.map((v,i)=>v?lvTag(i)+' ×'+v+'&nbsp; ':'').join('')}</div>
+ ${typeof medGrupoCard==='function'?medGrupoCard(g):''}
  ${profBody(rs,ce,es)}
  <div class="g g3" style="margin-top:14px"><div class="card"><h3>Entradas por nível</h3>${rs.length?donut(lc.map((v,i)=>[LV[i],v,LVC[i]]).filter(x=>x[1]),'entradas'):'<span class="sm">—</span>'}</div><div class="card"><h3>Entradas por classificação</h3>${rs.length?donut(cnt(rs,'k',4).map((v,i)=>[KL[i],v,KLC[i]]).filter(x=>x[1]),'entradas'):'<span class="sm">—</span>'}</div></div>
- ${typeof medGrupoCard==='function'?medGrupoCard(g):''}<div class="card"><h3>Advogados do grupo</h3><div style="overflow:auto"><table><tr><th>#</th><th>Advogado</th><th>Nível</th><th>Classificação</th><th>Medidas</th><th>Entradas</th><th>% grupo</th><th>Encerrados</th><th>Êxito</th><th>Estoque</th><th>Tendência</th></tr>${rows.map((s,k)=>`<tr class="r" onclick="setF('a',${s.i})"><td class="o">${k+1}</td><td>${esc(D.A[s.i])}</td><td>${lvTag(D.AL[s.i])}</td><td>${kTag(D.AK[s.i])}</td><td>${medCell(s.i)}</td><td>${n(s.t)}</td><td>${pc(s.t/T)}</td><td>${n(s.e)}</td><td>${s.ex==null?'—':pc(s.ex)}</td><td>${n(s.est)}</td><td style="color:${s.b.col}">${s.b.i} ${s.b.c}</td></tr>`).join('')||'<tr><td colspan="11" class="sm">Sem movimentação no recorte.</td></tr>'}</table></div></div>`},
+ <div class="card"><h3>Advogados do grupo</h3><div style="overflow:auto"><table><tr><th>#</th><th>Advogado</th><th>Nível</th><th>Classificação</th><th>Medidas</th><th>Entradas</th><th>% grupo</th><th>Encerrados</th><th>Êxito</th><th>Estoque</th><th>Tendência</th></tr>${rows.map((s,k)=>`<tr class="r" onclick="setF('a',${s.i})"><td class="o">${k+1}</td><td>${esc(D.A[s.i])}</td><td>${lvTag(D.AL[s.i])}</td><td>${kTag(D.AK[s.i])}</td><td>${medCell(s.i)}</td><td>${n(s.t)}</td><td>${pc(s.t/T)}</td><td>${n(s.e)}</td><td>${s.ex==null?'—':pc(s.ex)}</td><td>${n(s.est)}</td><td style="color:${s.b.col}">${s.b.i} ${s.b.c}</td></tr>`).join('')||'<tr><td colspan="11" class="sm">Sem movimentação no recorte.</td></tr>'}</table></div></div>`},
 niveis(){const S=agg2('l'),T=sumv(S.map(s=>s.t))||1,nm=NM(),L=MS.slice(0,nm),rs=rec(['l']),ce=rce(['l']),K=agg2('k'),SP=D.P.map((_,k)=>[k,rs.filter(r=>r.p==k)]).filter(x=>x[1].length).sort((a,b)=>b[1].length-a[1].length).slice(0,8);
  const topL=l=>{const x=rs.filter(r=>r.l==l),g=cnt(x,'g',D.G.length),a=cnt(x,'a',D.A.length);return `<div class="card dst" style="--c:${LVC[l]}"><span class="lab">${LV[l]} · principais</span><h3 style="margin:8px 0 4px">Grupos</h3>${bars(rk(g).slice(0,6).map(k=>[D.G[k],g[k],k]),x.length||1,k=>`gopen(${k})`)||'<span class="sm">—</span>'}<h3 style="margin:12px 0 4px">Ofensores</h3>${bars(rk(a).slice(0,6).map(k=>[D.A[k],a[k],k]),x.length||1,k=>`setF('a',${k})`)||'<span class="sm">—</span>'}</div>`};
  return `<h2>Níveis de advogados ofensores</h2><p class="sm" style="margin:-4px 0 14px">Nível conforme NIVEL_ADVOGADO (base de causas, conferido com a Lista de Agressores). Advogados sem nível cadastrado aparecem como “Sem nível”.</p>${lvStrip()}
